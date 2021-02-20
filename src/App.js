@@ -1,4 +1,5 @@
 import './App.css';
+import Button from './Components/Main/Button';
 // import API from './Components/API/API';
 import Main from './Components/Main/Main';
 import Nav from './Components/Nav/Nav';
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Nav />
       <Main />
+      <Button name="Name" />
       <API />
     </div>
   );

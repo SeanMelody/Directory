@@ -76,6 +76,7 @@ export default class API extends Component {
 
         return employees.map((employee, index) => (
             <div>
+                {/* {console.log(employees)} */}
                 <img key={index} src={employee.picture.medium} alt="employee photo" />
                 <p>First Name: {employee.name.first}</p>
                 <p> Last Name: {employee.name.last}</p>
@@ -84,10 +85,18 @@ export default class API extends Component {
     };
 
     render() {
-        return <div>{this.renderEmployee()}</div>;
+        const { employees } = this.state;
+        return (
+            <div>
+                {this.renderEmployee()}
+                {console.log(employees)}
+            </div>
+
+        )
     }
 }
 
+//Input to filter array
 
 
 // THANKS SakoBu
