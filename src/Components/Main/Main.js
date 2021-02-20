@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import API from "../../Utils/API"
 
-// let display = API.data[0]
 
-const Main = () => {
-    return (
-        <div>
+export default class Main extends Component {
 
-        </div>
-    )
+    state = {
+        result: {}
+    }
+
+    render() {
+        return (
+            <div>
+                {/* {this.setState({ result })} */}
+            </div>
+        )
+    }
 }
 
-export default Main

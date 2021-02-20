@@ -1,6 +1,20 @@
 import axios from "axios";
+const requestUrl = "https://randomuser.me/api/?"
 
 
+// export default {
+//     search: function (query) {
+//         return axios.get(requestUrl + query);
+//     }
+// };
+
+
+
+
+
+
+
+// FETCH
 // const requestUrl = "https://randomuser.me/api/?results=10";
 // fetch(requestUrl, {
 //     method: "GET",
@@ -16,19 +30,22 @@ import axios from "axios";
 //     })
 
 
+
+
+//AXIOS
+
+let employeeList = {}
+
 axios.get('https://randomuser.me/api/?results=10')
     .then(function (response) {
         // handle success
-        console.log(response);
+        // console.log(response);
+        employeeList = response.data.results
+        console.log(employeeList)
     })
     .catch(function (error) {
         // handle error
         console.log(error);
     })
-    .then(function () {
-        // always executed
-    });
 
-
-// Export an object with a "search" method that searches the Giphy API for the passed query
-export default {};
+export default {}
