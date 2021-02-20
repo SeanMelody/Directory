@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from './Components/Main/Main';
+import Nav from './Components/Nav/Nav';
 
 function App() {
   return (
     <div className="App">
-      <h1>Employee Directory</h1>
+      <Nav />
+      <Main />
+
     </div>
   );
 }
