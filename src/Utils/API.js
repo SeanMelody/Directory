@@ -50,48 +50,45 @@
 
 // export default {}
 
-import React from 'react';
+import React, { Component } from "react";
+import axios from "axios";
 
-class API extends React.Component {
-    state = { people: [], isLoading: true, error: null };
+export default class API extends Component {
+    state = { employees: [] };
+
+    onChange = function (e) {
+        this.setState({ [e.target.name]: e.target.value });
+    };
 
     async componentDidMount() {
         try {
             const response = await fetch('https://randomuser.me/api/?results=10');
             const data = await response.json();
-            this.setState({ people: data.results, isLoading: false });
+            this.setState({ employees: data.results, isLoading: false });
 
         } catch (error) {
             this.setState({ error: error.message, isLoading: false });
         }
     }
 
-    renderPerson = () => {
-        const { people, isLoading, error } = this.state;
+    renderEmployee = () => {
+        const { employees } = this.state;
 
-        if (error) {
-            return <div>{error}</div>;
-        }
-
-        if (isLoading) {
-            return <div>Loading...</div>;
-        }
-
-        return people.map(person => (
-            <div key={person.id.value}>
-                <img src={person.picture.medium} alt="avatar" />
-                <p>First Name: {person.name.first}</p>
-                <p> Last Name: {person.name.last}</p>
+        return employees.map((employee, index) => (
+            <div>
+                <img key={index} src={employee.picture.medium} alt="employee photo" />
+                <p>First Name: {employee.name.first}</p>
+                <p> Last Name: {employee.name.last}</p>
             </div>
         ));
     };
 
     render() {
-        return <div>{this.renderPerson()}</div>;
+        return <div>{this.renderEmployee()}</div>;
     }
 }
 
-export default API;
+
 
 // THANKS SakoBu
 // https://stackoverflow.com/questions/48892435/making-an-api-call-in-react
