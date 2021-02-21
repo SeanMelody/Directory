@@ -94,13 +94,20 @@ export default class API extends Component {
         const { employees } = this.state;
         return (
             <div>
-                <Button name="Name" onClick={() => console.log("Sean")}>
+                <Button name="Male" onClick={() => console.log("Male Button")}>
                     {employees.filter(employee => employee.gender === "male").map(filteredEmployee => (
                         <li>{filteredEmployee.name}   {console.log(filteredEmployee.name)}</li>
                     ))}
                 </Button>
-                <Button name="Country" />
-                <Button name="Age" />
+                <Button name="Over40" onClick={() => console.log("Over 40 Button")}>
+                    {employees.filter(employee => employee.dob.age >= "40").map(filteredEmployee => (
+                        <li>{filteredEmployee.dob.age}   {console.log(filteredEmployee.dob.age)}</li>
+                    ))}
+                </Button>
+                <Button name="Sort A -> Z" onClick={() => console.log("Sort")}>
+                    {employees.sort((a, b) => a.name.first.localeCompare(b.name.first))}
+                </Button>
+
                 <Form />
                 {this.renderEmployee()}
                 {console.log(employees)}
@@ -109,6 +116,11 @@ export default class API extends Component {
         )
     }
 }
+
+
+{/* {employees.map(employee => employee.name >= "40").map(filteredEmployee => (
+                        <li>{filteredEmployee.name}   {console.log(filteredEmployee.name)}</li>
+                    ))} */}
 
 //Input to filter array
 
