@@ -9,11 +9,6 @@
 // };
 
 
-
-
-
-
-
 // FETCH
 // const requestUrl = "https://randomuser.me/api/?results=10";
 // fetch(requestUrl, {
@@ -52,6 +47,7 @@
 
 import React, { Component } from "react";
 import axios from "axios";
+import APIStyles from "./APIStyles"
 
 export default class API extends Component {
     state = { employees: [] };
@@ -64,23 +60,29 @@ export default class API extends Component {
         try {
             const response = await fetch('https://randomuser.me/api/?results=10');
             const data = await response.json();
-            this.setState({ employees: data.results, isLoading: false });
+            this.setState({ employees: data.results });
 
         } catch (error) {
-            this.setState({ error: error.message, isLoading: false });
+            this.setState({ error: error.message });
         }
     }
 
     renderEmployee = () => {
         const { employees } = this.state;
+        console.log(employees)
 
         return employees.map((employee, index) => (
-            <div>
-                {/* {console.log(employees)} */}
-                <img key={index} src={employee.picture.medium} alt="employee photo" />
-                <p>First Name: {employee.name.first}</p>
-                <p> Last Name: {employee.name.last}</p>
-            </div>
+            <table style={APIStyles.employeeTable}>
+                <tr>
+                    {/* {console.log(employees)} */}
+                    <th> <img key={index} src={employee.picture.large} alt="employee photo" /> </th>
+                    <th>{employee.name.first} {employee.name.last}</th>
+                    {/* <th>Last Name: {employee.name.last}</th> */}
+                    <th>Country: {employee.location.country}</th>
+                    <th>Age: {employee.dob.age}</th>
+                </tr>
+            </table>
+
         ));
     };
 

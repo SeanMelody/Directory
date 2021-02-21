@@ -15,9 +15,10 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Main />
       <Button name="Name" />
-      <API />
+      <Button name="Filter" />
+      <Main />
+      {/* <API /> */}
     </div>
   );
 }

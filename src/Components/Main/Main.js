@@ -11,7 +11,7 @@ export default class Main extends Component {
     render() {
         return (
             <div>
-                {/* {this.setState({ result })} */}
+                <API />
             </div>
         )
     }

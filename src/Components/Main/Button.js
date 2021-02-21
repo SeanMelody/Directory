@@ -5,7 +5,7 @@ import React from 'react'
 const Button = (props) => {
 
     return (
-        <button className="btn btn-danger">Sort by {props.name}</button>
+        <button className="btn btn-outline-danger">{props.name}</button>
     )
 }
 
