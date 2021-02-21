@@ -107,7 +107,10 @@ export default class API extends Component {
                 <Button name="Sort A -> Z" onClick={() => console.log("Sort")}>
                     {employees.sort((a, b) => a.name.first.localeCompare(b.name.first))}
                 </Button>
-
+                <Button name="Sort Young -> Old" onClick={() => console.log("By Age")}>
+                    {employees.sort((a, b) => a.location.country.localeCompare(b.location.country))}
+                    {/* {employees.sort((a, b) => toString(a.dob.age).localeCompare(toString(b.dob.age)))} */}
+                </Button>
                 <Form />
                 {this.renderEmployee()}
                 {console.log(employees)}
