@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Button name="Name" />
-      <Button name="Filter" />
+      {/* <Button name="Name" />
+      <Button name="Filter" /> */}
       <Main />
       {/* <API /> */}
     </div>

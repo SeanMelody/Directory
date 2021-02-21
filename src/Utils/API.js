@@ -48,6 +48,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import APIStyles from "./APIStyles"
+import Button from "../Components/Main/Button"
+import Form from "../Components/Form/Form"
 
 export default class API extends Component {
     state = { employees: [] };
@@ -69,17 +71,19 @@ export default class API extends Component {
 
     renderEmployee = () => {
         const { employees } = this.state;
-        console.log(employees)
+        // console.log(employees)
 
         return employees.map((employee, index) => (
+
             <table style={APIStyles.employeeTable}>
-                <tr>
+                <tr key={index} >
                     {/* {console.log(employees)} */}
-                    <th> <img key={index} src={employee.picture.large} alt="employee photo" /> </th>
+                    {/* <th> <img key={index} src={employee.picture.medium} alt="employee photo" /> </th> */}
                     <th>{employee.name.first} {employee.name.last}</th>
-                    {/* <th>Last Name: {employee.name.last}</th> */}
+                    {/* <li>Last Name: {employee.name.last}</li> */}
                     <th>Country: {employee.location.country}</th>
                     <th>Age: {employee.dob.age}</th>
+                    <th>Gender: {employee.gender}</th>
                 </tr>
             </table>
 
@@ -90,6 +94,14 @@ export default class API extends Component {
         const { employees } = this.state;
         return (
             <div>
+                <Button name="Name" onClick={() => console.log("Sean")}>
+                    {employees.filter(employee => employee.gender === "male").map(filteredEmployee => (
+                        <li>{filteredEmployee.name}   {console.log(filteredEmployee.name)}</li>
+                    ))}
+                </Button>
+                <Button name="Country" />
+                <Button name="Age" />
+                <Form />
                 {this.renderEmployee()}
                 {console.log(employees)}
             </div>
