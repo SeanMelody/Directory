@@ -17,8 +17,8 @@ function App() {
       <Nav />
       {/* <Button name="Name" />
       <Button name="Filter" /> */}
-      <Main />
-      {/* <API /> */}
+      {/* <Main /> */}
+      <API />
     </div>
   );
 }
