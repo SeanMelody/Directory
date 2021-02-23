@@ -15,7 +15,7 @@ const Search = (props) => {
                         name="search"
                         type="text"
                         placeholder="Search"
-
+                        id="search"
 
                     />
 
