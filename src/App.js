@@ -5,6 +5,7 @@ import './App.css';
 import Nav from "./Components/Nav/Nav"
 import API from './Utils/API';
 import Search from "./Components/Search/Search"
+import EmployeeList from './Components/EmployeeList/EmployeeList';
 
 
 
@@ -15,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Search />
+      {/* <Search /> */}
+      <EmployeeList />
     </div>
   );
 }
