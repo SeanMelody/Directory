@@ -61,21 +61,42 @@ export default class EmployeeList extends Component {
         this.setState({ results: sortedEmployees })
     }
 
+    sortByCountry = () => {
+        const sortedEmployees = this.state.results.sort((a, b) => {
+            if (b.location.country > a.location.country) {
+                return -1
+            }
+            if (a.location.country > b.location.country) {
+                return 1
+            }
+            return 0;
+        });
+        if (this.state.sortOrder === "DESC") {
+            sortedEmployees.reverse();
+            this.setState({ sortOrder: "ASC" });
+        } else {
+            this.setState({ sortOrder: "DESC" });
+        }
+        this.setState({ results: sortedEmployees })
+    }
+
+
 
     render() {
         return (
             <div>
-                <Search handleInputChange={this.handleInputChange}
-                    search={this.state.search} />
-                <button onClick={this.sortByFName}>Name</button>
+                <div>
+                    <Search handleInputChange={this.handleInputChange}
+                        search={this.state.search} />
+                </div>
                 <div className="table-responsive">
                     <table className="table table-striped table-resposive text-center table-hover">
                         <thead>
                             <tr>
                                 <th>Profile Photo</th>
-                                <th>Name</th>
+                                <th>Name     <button onClick={this.sortByFName} class="btn btn-outline-danger">Sort</button></th>
                                 <th>Age</th>
-                                <th>Country</th>
+                                <th>Country  <button onClick={this.sortByCountry} class="btn btn-outline-danger">Sort</button></th>
                                 <th>Email</th>
                             </tr>
                         </thead>
