@@ -41,8 +41,22 @@ export default class EmployeeList extends Component {
     render() {
         return (
             <div>
-                <Search />
+                <Search handleInputChange={this.handleInputChange}
+                    search={this.state.search} />
+                <div className="table-responsive">
+                    <table className="table table-striped table-resposive text-center table-hover">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
 
+                    </table>
+
+                </div>
 
 
             </div>
