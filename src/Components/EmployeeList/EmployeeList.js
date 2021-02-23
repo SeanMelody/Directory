@@ -47,12 +47,42 @@ export default class EmployeeList extends Component {
                     <table className="table table-striped table-resposive text-center table-hover">
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Profile Photo</th>
+                                <th>Name</th>
                                 <th>Age</th>
                                 <th>Country</th>
                             </tr>
                         </thead>
+                        { //First Name sort
+                            this.state.results && this.state.results.map(employee =>
+                                employee.name.first.toLowerCase().includes(this.state.search) ?
+                                    <tbody key={employee.login.uuid}>
+                                        <tr>
+                                            <td ><img src={employee.picture.medium} /></td>
+                                            <td >{employee.name.first} {employee.name.last}</td>
+                                            <td >{employee.dob.age}</td>
+                                            <td >{employee.location.country}</td>
+                                            <td >{employee.email}</td>
+
+                                        </tr>
+                                    </tbody>
+
+                                    :
+                                    //Last Name sort
+                                    employee.name.last.toLowerCase().includes(this.state.search) ?
+                                        <tbody key={employee.login.uuid}>
+                                            <tr>
+                                                <td ><img src={employee.picture.medium} /></td>
+                                                <td >{employee.name.first}</td>
+                                                <td >{employee.name.last}</td>
+                                                <td >{employee.phone} </td>
+                                                <td >{employee.email}</td>
+
+                                            </tr>
+                                        </tbody>
+                                        :
+                                        null
+                            )}
 
                     </table>
 
