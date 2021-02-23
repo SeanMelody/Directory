@@ -15,7 +15,7 @@ const Search = (props) => {
                         value={props.search}
                         name="search"
                         type="text"
-                        placeholder="Search"
+                        placeholder="Search by Employee Name"
                         className="col-md-6"
                         id="search"
                     />

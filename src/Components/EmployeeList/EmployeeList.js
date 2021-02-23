@@ -35,7 +35,26 @@ export default class EmployeeList extends Component {
         }
     }
 
+    //Sort by first name
+    sortByFName = () => {
+        const sortedEmployees = this.state.results.sort((a, b) => {
+            if (b.name.first > a.name.first) {
+                return -1
+            }
+            if (a.name.first > b.name.first) {
+                return 1
+            }
+            return 0;
+        });
 
+        if (this.state.sortOrder === "DESC") {
+            sortedEmployees.reverse();
+            this.setState({ sortOrder: "ASC" });
+        } else {
+            this.setState({ sortOrder: "DESC" });
+        }
+        this.setState({ results: sortedEmployees })
+    }
 
 
     render() {
@@ -51,6 +70,7 @@ export default class EmployeeList extends Component {
                                 <th>Name</th>
                                 <th>Age</th>
                                 <th>Country</th>
+                                <th>Email</th>
                             </tr>
                         </thead>
                         { //First Name sort
@@ -73,9 +93,9 @@ export default class EmployeeList extends Component {
                                         <tbody key={employee.login.uuid}>
                                             <tr>
                                                 <td ><img src={employee.picture.medium} /></td>
-                                                <td >{employee.name.first}</td>
-                                                <td >{employee.name.last}</td>
-                                                <td >{employee.phone} </td>
+                                                <td >{employee.name.first} {employee.name.last}</td>
+                                                <td >{employee.dob.age}</td>
+                                                <td >{employee.location.country}</td>
                                                 <td >{employee.email}</td>
 
                                             </tr>
