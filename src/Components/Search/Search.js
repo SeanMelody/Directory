@@ -1,6 +1,7 @@
 // Import React
 import React from "react";
 
+
 // Declare a function for the search bar and bring in props
 const Search = (props) => {
 
@@ -9,14 +10,14 @@ const Search = (props) => {
     return (
         <form>
             <div className="row">
-                <div className="col-md-10 mx-auto">
+                <div>
                     <input
                         onChange={props.handleInputChange}
                         value={props.search}
                         name="search"
                         type="text"
                         placeholder="Search by Employee Name"
-                        className="col-md-6"
+                        className="input col-md-6"
                         id="search"
                     />
                 </div>
@@ -25,4 +26,5 @@ const Search = (props) => {
     )
 
 }
+
 export default Search

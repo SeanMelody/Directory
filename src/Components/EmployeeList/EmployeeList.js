@@ -25,10 +25,12 @@ export default class EmployeeList extends Component {
             }).catch(err => console.log(err))
     }
 
-
+    // Handle input change to get the data from the search bar and make it render
     handleInputChange = event => {
         if (event.target.name === "search") {
+            // Lower case it just incase
             const searchValue = event.target.value.toLowerCase();
+            // Set the state
             this.setState({
                 search: searchValue
             })
@@ -37,7 +39,9 @@ export default class EmployeeList extends Component {
 
     //Sort by first name
     sortByFName = () => {
+        // set the sate to sorted
         const sortedEmployees = this.state.results.sort((a, b) => {
+            // If statement to sort a->z or z->a
             if (b.name.first > a.name.first) {
                 return -1
             }
@@ -47,6 +51,7 @@ export default class EmployeeList extends Component {
             return 0;
         });
 
+        // If else statement to set the states to a->z or z->a
         if (this.state.sortOrder === "DESC") {
             sortedEmployees.reverse();
             this.setState({ sortOrder: "ASC" });
@@ -62,6 +67,7 @@ export default class EmployeeList extends Component {
             <div>
                 <Search handleInputChange={this.handleInputChange}
                     search={this.state.search} />
+                <button onClick={this.sortByFName}>Name</button>
                 <div className="table-responsive">
                     <table className="table table-striped table-resposive text-center table-hover">
                         <thead>
