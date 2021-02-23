@@ -26,7 +26,14 @@ export default class EmployeeList extends Component {
     }
 
 
-
+    handleInputChange = event => {
+        if (event.target.name === "search") {
+            const searchValue = event.target.value.toLowerCase();
+            this.setState({
+                search: searchValue
+            })
+        }
+    }
 
 
 
