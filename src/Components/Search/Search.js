@@ -8,14 +8,15 @@ const Search = (props) => {
     //Return the search form!
     return (
         <form>
-            <div>
-                <div>
+            <div className="row">
+                <div className="col-md-10 mx-auto">
                     <input
                         onChange={props.handleInputChange}
                         value={props.search}
                         name="search"
                         type="text"
                         placeholder="Search"
+                        className="col-md-6"
                         id="search"
                     />
                 </div>
