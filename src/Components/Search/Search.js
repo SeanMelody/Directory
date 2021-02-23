@@ -11,14 +11,13 @@ const Search = (props) => {
             <div>
                 <div>
                     <input
-
+                        onChange={props.handleInputChange}
+                        value={props.search}
                         name="search"
                         type="text"
                         placeholder="Search"
                         id="search"
-
                     />
-
                 </div>
             </div>
         </form>
