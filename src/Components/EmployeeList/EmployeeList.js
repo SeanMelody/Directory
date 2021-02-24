@@ -94,9 +94,9 @@ export default class EmployeeList extends Component {
                         <thead>
                             <tr>
                                 <th>Profile Photo</th>
-                                <th>Name<button onClick={this.sortByFName} className="btn btn-outline-danger">Sort</button></th>
+                                <th>Name<button onClick={this.sortByFName} className="btn-sm btn-outline-danger">&#8593; &#x2193;</button></th>
                                 <th>Age</th>
-                                <th>Country<button onClick={this.sortByCountry} className="btn btn-outline-danger">Sort</button></th>
+                                <th>Country<button onClick={this.sortByCountry} className="btn-sm btn-outline-danger">&#8593; &#x2193;</button></th>
                                 <th>Email</th>
                             </tr>
                         </thead>
