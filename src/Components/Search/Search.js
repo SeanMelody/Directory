@@ -1,7 +1,6 @@
 // Import React
 import React from "react";
 
-
 // Declare a function for the search bar and bring in props
 const Search = (props) => {
 
@@ -10,14 +9,14 @@ const Search = (props) => {
     return (
         <form>
             <div className="row">
-                <div>
+                <div className="col-md-12 mx-auto">
                     <input
                         onChange={props.handleInputChange}
                         value={props.search}
                         name="search"
                         type="text"
                         placeholder="Search by Employee Name"
-                        className="input col-md-6"
+                        className="col-md-6 .form-control text-center"
                         id="search"
                     />
                 </div>
