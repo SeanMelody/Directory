@@ -94,9 +94,9 @@ export default class EmployeeList extends Component {
                         <thead>
                             <tr>
                                 <th>Profile Photo</th>
-                                <th>Name<button onClick={this.sortByFName} className="btn-sm btn-outline-danger">&#8593; &#x2193;</button></th>
+                                <th>Name<button onClick={this.sortByFName} className="btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
                                 <th>Age</th>
-                                <th>Country<button onClick={this.sortByCountry} className="btn-sm btn-outline-danger">&#8593; &#x2193;</button></th>
+                                <th>Country<button onClick={this.sortByCountry} className="btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
                                 <th>Email</th>
                             </tr>
                         </thead>
@@ -105,7 +105,7 @@ export default class EmployeeList extends Component {
                                 employee.name.first.toLowerCase().includes(this.state.search) ?
                                     <tbody key={employee.login.uuid}>
                                         <tr>
-                                            <td ><img src={employee.picture.medium} /></td>
+                                            <td><img src={employee.picture.medium} className="border border-dark" /></td>
                                             <td >{employee.name.first} {employee.name.last}</td>
                                             <td >{employee.dob.age}</td>
                                             <td >{employee.location.country}</td>
@@ -119,7 +119,7 @@ export default class EmployeeList extends Component {
                                     employee.name.last.toLowerCase().includes(this.state.search) ?
                                         <tbody key={employee.login.uuid}>
                                             <tr>
-                                                <td ><img src={employee.picture.medium} /></td>
+                                                <td><img src={employee.picture.medium} className="border border-dark" /></td>
                                                 <td >{employee.name.first} {employee.name.last}</td>
                                                 <td >{employee.dob.age}</td>
                                                 <td >{employee.location.country}</td>
