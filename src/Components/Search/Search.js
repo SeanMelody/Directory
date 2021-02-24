@@ -8,7 +8,7 @@ const Search = (props) => {
     //Return the search form!
     return (
         <form>
-            <div className="row">
+            <div className="row form-group">
                 <div className="col-md-12 mx-auto">
                     <input
                         onChange={props.handleInputChange}
@@ -16,7 +16,7 @@ const Search = (props) => {
                         name="search"
                         type="text"
                         placeholder="Search by Employee Name"
-                        className="col-md-6 .form-control text-center"
+                        className="col-md-6 mx-auto form-control text-center"
                         id="search"
                     />
                 </div>

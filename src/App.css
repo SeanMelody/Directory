@@ -1,3 +1,5 @@
 .App {
   text-align: center;
+  background: linear-gradient(rgb(241, 176, 176), rgb(0, 204, 255));
+  color: black;
 }
