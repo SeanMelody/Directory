@@ -1,7 +1,8 @@
-// Import all the necessart goodness!
+// Import all the necessary goodness!
 import React, { Component } from 'react'
 import API from "../../Utils/API"
 import Search from "../Search/Search"
+import EmployeeListStyles from "./EmployeeListStyles"
 
 // Export default here instead of below!
 export default class EmployeeList extends Component {
@@ -92,18 +93,18 @@ export default class EmployeeList extends Component {
                 <div className="table-responsive">
                     <table className="table table-striped table-resposive text-center table-hover">
                         <thead>
-                            <tr>
+                            <tr style={EmployeeListStyles.titleStyle}>
                                 <th>Profile Photo</th>
-                                <th>Name<button onClick={this.sortByFName} className="btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
+                                <th>Name<button style={EmployeeListStyles.buttonsStyling} onClick={this.sortByFName} className="buttonsStyling btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
                                 <th>Age</th>
-                                <th>Country<button onClick={this.sortByCountry} className="btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
+                                <th>Country<button style={EmployeeListStyles.buttonsStyling} onClick={this.sortByCountry} className="buttonsStyling btn-sm btn-outline-dark">&#8593; &#x2193;</button></th>
                                 <th>Email</th>
                             </tr>
                         </thead>
                         { //First Name sort
                             this.state.results && this.state.results.map(employee =>
                                 employee.name.first.toLowerCase().includes(this.state.search) ?
-                                    <tbody key={employee.login.uuid}>
+                                    <tbody key={employee.login.uuid} style={EmployeeListStyles.employee}>
                                         <tr>
                                             <td><img src={employee.picture.medium} className="border border-dark" /></td>
                                             <td >{employee.name.first} {employee.name.last}</td>
