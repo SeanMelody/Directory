@@ -26,4 +26,5 @@ const Search = (props) => {
 
 }
 
+// Export to use as the Search Component
 export default Search

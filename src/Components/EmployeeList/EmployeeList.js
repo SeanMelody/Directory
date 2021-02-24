@@ -38,7 +38,7 @@ export default class EmployeeList extends Component {
         }
     }
 
-    //Sort by first name
+    //Sort by first name function
     sortByFName = () => {
         // set the sate to sorted
         const sortedEmployees = this.state.results.sort((a, b) => {
@@ -62,6 +62,7 @@ export default class EmployeeList extends Component {
         this.setState({ results: sortedEmployees })
     }
 
+    // Sort by country function
     sortByCountry = () => {
         const sortedEmployees = this.state.results.sort((a, b) => {
             if (b.location.country > a.location.country) {
@@ -72,6 +73,7 @@ export default class EmployeeList extends Component {
             }
             return 0;
         });
+        // If else statement to set the states to a->z or z->a
         if (this.state.sortOrder === "DESC") {
             sortedEmployees.reverse();
             this.setState({ sortOrder: "ASC" });
@@ -82,16 +84,17 @@ export default class EmployeeList extends Component {
     }
 
 
-
+    // Render it all to the page (but still have to bring it in in App.js)
     render() {
         return (
             <div>
                 <div>
+                    {/* Using the Search component Here */}
                     <Search handleInputChange={this.handleInputChange}
                         search={this.state.search} />
                 </div>
                 <div className="table-responsive">
-                    <table className="table table-striped table-resposive text-center table-hover">
+                    <table className="table table-striped text-center table-hover">
                         <thead>
                             <tr style={EmployeeListStyles.titleStyle}>
                                 <th>Profile Photo</th>
@@ -101,7 +104,7 @@ export default class EmployeeList extends Component {
                                 <th>Email</th>
                             </tr>
                         </thead>
-                        { //First Name sort
+                        { // Sort by First Name
                             this.state.results && this.state.results.map(employee =>
                                 employee.name.first.toLowerCase().includes(this.state.search) ?
                                     <tbody key={employee.login.uuid} style={EmployeeListStyles.employee}>
@@ -116,7 +119,7 @@ export default class EmployeeList extends Component {
                                     </tbody>
 
                                     :
-                                    //Last Name sort
+                                    // Sort by Country
                                     employee.name.last.toLowerCase().includes(this.state.search) ?
                                         <tbody key={employee.login.uuid}>
                                             <tr>
@@ -131,12 +134,8 @@ export default class EmployeeList extends Component {
                                         :
                                         null
                             )}
-
                     </table>
-
                 </div>
-
-
             </div>
         )
     }

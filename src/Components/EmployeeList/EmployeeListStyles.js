@@ -1,3 +1,4 @@
+// Exporting the styles
 module.exports = {
 
     // Extra EmployeeListStyling!
