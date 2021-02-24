@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // set the api call url to a constant
-const requestUrl = "https://randomuser.me/api/?results=10";
+const requestUrl = "https://randomuser.me/api/?results=30";
 
 // export the Api Call
 export default {
